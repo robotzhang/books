@@ -1,0 +1,30 @@
+<%= form_for [:admin, @chapter], :html => { :class => 'form-horizontal' } do |f| %>
+    <%= f.hidden_field :id %>
+    <div class="control-group">
+        <%= f.label :book_id, '所属图书', :class => "control-label" %>
+        <div class="controls">
+          <%= f.text_field :book_id, 'class'=>'input-mini' %>
+          <%= @chapter.book.name %>
+        </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :number, '章节号', :class => "control-label" %>
+      <div class="controls"><%= f.text_field :number %></div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :title, '标题', :class => "control-label" %>
+      <div class="controls"><%= f.text_field :title %></div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :content, '章节内容', :class => "control-label" %>
+      <div class="controls"><%= f.text_area :content, "rows" => 4, 'class' => 'span5' %></div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit '提交', :class => 'btn btn-primary' %>
+      <a href="<%= admin_chapters_url(:book_id => @chapter.book_id) %>"><i class="icon-share-alt"></i>返回章节管理</a>
+    </div>
+<% end %>

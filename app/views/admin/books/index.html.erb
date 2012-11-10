@@ -1,15 +1,15 @@
-<div>
+<div class="mb10">
   <a class="btn" href="<%= url_for(:controller => 'admin/books', :action => 'new') %>"><i class="icon-plus-sign"></i> 添加图书</a>
 </div>
 
-<table class="table table-bordered">
+<table class="table table-bordered table-striped">
   <thead>
   <tr>
     <th>ID</th>
     <th>图书名称</th>
     <th>语言</th>
     <th>创建时间</th>
-    <td>操作</td>
+    <th>操作</th>
   </tr>
   </thead>
   <tbody>
@@ -23,6 +23,8 @@
       <a href="<%= edit_polymorphic_url([:admin, book]) %>"><i class="icon-edit"></i>编辑</a>
       |
       <%= link_to content_tag(:i, '', 'class'=>'icon-remove-sign')+"删除", admin_book_path(book), :confirm => "确定删除?", :method=>:delete %>
+      |
+      <a href="<%= admin_chapters_url(:book_id => 1) %>"><i class="icon-th"></i>章节</a>
     </td>
   </tr>
   <% end %>

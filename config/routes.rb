@@ -2,6 +2,8 @@ Books::Application.routes.draw do
   root :to => 'application#homepage'
   namespace :admin do |admin|
     resources :books
+    resources :chapters
+    resources :users
   end
   # The priority is based upon order of creation:
   # first created -> highest priority.

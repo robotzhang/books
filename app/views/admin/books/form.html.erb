@@ -16,6 +16,11 @@
     </div>
 
     <div class="control-group">
+      <%= f.label :cover_image, '封面图片', :class => "control-label" %>
+      <div class="controls"><%= f.text_field :cover_image %></div>
+    </div>
+
+    <div class="control-group">
       <%= f.label :introduce, '图书简介', :class => "control-label" %>
       <div class="controls"><%= f.text_area :introduce, "rows" => 4, 'class' => 'span5' %></div>
     </div>
