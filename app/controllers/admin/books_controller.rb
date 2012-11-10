@@ -17,6 +17,13 @@ class Admin::BooksController < ApplicationController
     render :template => 'admin/books/form'
   end
   def update
-
+    @book = Book.find(params[:id])
+    @book.update_attributes(params[:book])
+    redirect_to :action => :index
+  end
+  def destroy
+    @book = Book.find(params[:id])
+    @book.destroy
+    redirect_to :action => :index
   end
 end

@@ -1,4 +1,5 @@
 <%= form_for [:admin, @book], :html => { :class => 'form-horizontal' } do |f| %>
+    <%= f.hidden_field :id %>
     <div class="control-group">
         <%= f.label :name, '图书名称', :class => "control-label" %>
         <div class="controls"><%= f.text_field :name %></div>
