@@ -51,7 +51,7 @@ module Books
     # This will create an empty whitelist of attributes available for mass-assignment for all models
     # in your app. As such, your models will need to explicitly whitelist or blacklist accessible
     # parameters by using an attr_accessible or attr_protected declaration.
-    config.active_record.whitelist_attributes = true
+    #config.active_record.whitelist_attributes = true # 打开这个配置则必须要显式得在程序中指定attr_accessible
 
     # Enable the asset pipeline
     config.assets.enabled = true

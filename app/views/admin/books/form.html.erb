@@ -1,0 +1,26 @@
+<%= form_for [:admin, @book], :html => { :class => 'form-horizontal' } do |f| %>
+    <div class="control-group">
+        <%= f.label :name, '图书名称', :class => "control-label" %>
+        <div class="controls"><%= f.text_field :name %></div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :sub_name, '子名称', :class => "control-label" %>
+      <div class="controls"><%= f.text_field :sub_name %></div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :language, '语言', :class => "control-label" %>
+      <div class="controls"><%= f.select :language, [['中文', 'cn'], ['英文', 'en']] %></div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :introduce, '图书简介', :class => "control-label" %>
+      <div class="controls"><%= f.text_area :introduce, "rows" => 4, 'class' => 'span5' %></div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit '提交', :class => 'btn btn-primary' %>
+      <a href="<%= admin_books_url %>"><i class="icon-share-alt"></i>返回图书管理</a>
+    </div>
+<% end %>

@@ -1,3 +1,32 @@
 <div>
   <a class="btn" href="<%= url_for(:controller => 'admin/books', :action => 'new') %>"><i class="icon-plus-sign"></i> 添加图书</a>
 </div>
+
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>图书名称</th>
+    <th>语言</th>
+    <th>创建时间</th>
+    <td>操作</td>
+  </tr>
+  </thead>
+  <tbody>
+  <% @books.each do |book| %>
+  <tr>
+    <td><%= book.id %></td>
+    <td><%= book.name %></td>
+    <td><%= book.language %></td>
+    <td><%= book.created_at.to_date %></td>
+    <td>
+      <a href="<%= edit_polymorphic_url([:admin, book]) %>"><i class="icon-edit"></i>编辑</a>
+      |
+      <%= link_to content_tag(:i, '', 'class'=>'icon-remove-sign')+"删除", admin_book_path(book), :confirm => "确定删除?", :method=>:delete %>
+    </td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= paginate @books %>
