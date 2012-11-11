@@ -1,0 +1,18 @@
+<div class="clearfix">
+  <div class="pull-left">
+    <img src="<%= @book.cover_image %>" title="<%= @book.name %>" />
+  </div>
+  <div>
+    <p><%= @book.name %></p>
+    <div><%= @book.sub_name %></div>
+  </div>
+</div>
+
+<div>
+  目录：
+  <ol>
+    <% @book.chapters.each do |chapter| %>
+    <li><a href="<%= chapter_url(chapter) %>"><%= chapter.title %></a></li>
+    <% end %>
+  </ol>
+</div>

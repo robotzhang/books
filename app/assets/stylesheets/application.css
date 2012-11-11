@@ -9,7 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= bootstrap
- *= require_tree .
+ *= require bootstrap
  */
 .mb10 { margin-bottom: 10px; }
+.tac { text-align: center; }

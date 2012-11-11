@@ -1,5 +1,7 @@
 Books::Application.routes.draw do
   root :to => 'application#homepage'
+  resources :books
+  resources :chapters
   namespace :admin do |admin|
     resources :books
     resources :chapters

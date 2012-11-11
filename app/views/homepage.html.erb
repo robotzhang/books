@@ -1,13 +1,11 @@
+<%= provide(:stylesheet, stylesheet_link_tag('home')) %>
 <div class="container">
-    <div class="row">
-      <div class="span5">
-        <div class="pull-left">
-          <img src="http://img3.douban.com/mpic/s4614545.jpg" />
-        </div>
-        <div>
-          <h4>重来 REWORK</h4>
-          <div>更为简单有效的商业思维</div>
-        </div>
-      </div>
-    </div>
+  <ul class="books unstyled clearfix">
+    <li>
+      <% @books.each do |book| %>
+        <div><a href="<%= book_url(book) %>"><img src="<%= book.cover_image %>" title="<%= book.name %>" /></a></div>
+        <div class="tac"><a href="<%= book_url(book) %>"><%= book.name %></a></div>
+      <% end %>
+    </li>
+  </ul>
 </div>
