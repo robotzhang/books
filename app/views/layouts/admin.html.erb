@@ -8,7 +8,10 @@
 </head>
 <body>
     <div>
-        <div class="pull-right" style="padding: 10px;;">欢迎：</div>
+        <div class="pull-right" style="padding: 10px;;">
+          欢迎：
+          <a href="<%= root_url %>">网站首页</a>
+        </div>
         <ul class="nav nav-tabs" style="padding: 10px 20px; padding-bottom: 0;;">
             <li<%= ' class=active' if params[:controller] == 'admin/books' %>><a href="<%= url_for(:controller => 'admin/books') %>">图书管理</a></li>
             <li<%= ' class=active' if params[:controller] == 'admin/chapters' %>><a href="<%= url_for(:controller => 'admin/chapters') %>">章节维护</a></li>

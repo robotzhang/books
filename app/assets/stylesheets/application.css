@@ -11,5 +11,6 @@
  *= require_self
  *= require bootstrap
  */
+.mb0 { margin-bottom: 0px; }
 .mb10 { margin-bottom: 10px; }
 .tac { text-align: center; }

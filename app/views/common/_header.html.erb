@@ -5,11 +5,16 @@
       <li><a href="<%= root_url %>">首页</a></li>
     </ul-->
     <ul class="top-nav-options pull-right unstyled">
+      <% if current_user %>
+      <li>欢迎：<%= current_user.nickname %></li>
+      <li><a href="<%= logout_url %>"><i class="icon-off"></i>退出</a></li>
+      <% else %>
       <li>
         <a href="<%= url_for('login') %>">登陆</a>
         或
-        <a href="<%= url_for('register') %>">注册</a>
+        <a href="<%= url_for('signup') %>">注册</a>
       </li>
+      <% end %>
     </ul>
   </div>
 </div>
