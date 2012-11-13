@@ -10,7 +10,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      redirect_to request.env["HTTP_REFERER"] || root_url, :notice => '成功登录！'
+      session[:user] = @user
+      redirect_to request.env["HTTP_REFERER"] || root_url, :notice => '注册成功！'
     else
       render :new
     end
@@ -21,10 +22,10 @@ class UsersController < ApplicationController
   end
   def login
     @user = User.new(params[:user])
-    user = User.where(:email => @user.email, :password => @user.password).first
+    user = User.where(:email => @user.email, :password => Digest::SHA512.hexdigest(@user.password || '')).first
     if user
       session[:user] = user
-      redirect_to request.env["HTTP_REFERER"] || root_url, :notice => "登陆成功！"
+      redirect_to request.env["HTTP_REFERER"] || root_url, :notice => "登录成功！"
     else
       @user.errors[:account] = '用户名或密码错误！' unless @user.email.nil?
     end
