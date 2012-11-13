@@ -8,9 +8,9 @@ class ApplicationController < ActionController::Base
   end
 
   # 登录验证
-  def authenticated
+  def authenticated(alert=nil)
     unless current_user
-      redirect_to login_url, :alert => '请登录'
+      redirect_to login_url, :alert => alert || '请先登陆'
       return false
     end
     true

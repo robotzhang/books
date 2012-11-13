@@ -1,5 +1,8 @@
 <%= form_for @user, :url => login_url, :html => { :class => 'form-horizontal' } do |f| %>
     <legend>登录<div class="pull-right">还没账号？<a href="<%= signup_url %>">注册</a></div></legend>
+    <% if flash[:alert]%>
+        <div class="alert"><%=  flash[:alert] %></div>
+    <% end %>
     <% if @user.errors.any? %>
     <div>
       <ul class="unstyled well-small alert-error">
