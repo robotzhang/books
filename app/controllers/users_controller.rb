@@ -1,8 +1,7 @@
 #coding=utf-8
 class UsersController < ApplicationController
-  before_filter :authenticated, :only => 'show' # for test login
   def show
-
+    @user = User.find(params[:id])
   end
   def new
     @user = User.new
@@ -29,9 +28,5 @@ class UsersController < ApplicationController
     else
       @user.errors[:account] = '用户名或密码错误！' unless @user.email.nil?
     end
-  end
-
-  def test
-
   end
 end

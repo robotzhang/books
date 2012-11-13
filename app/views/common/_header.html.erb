@@ -6,7 +6,7 @@
     </ul-->
     <ul class="top-nav-options pull-right unstyled">
       <% if current_user %>
-      <li>欢迎：<%= current_user.nickname %></li>
+      <li>欢迎：<a href="<%= u_url(current_user) %>"><%= current_user.nickname %></a></li>
       <li><a href="<%= logout_url %>"><i class="icon-off"></i>退出</a></li>
       <% else %>
       <li>
