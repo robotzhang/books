@@ -4,3 +4,12 @@
   <dt>加入时间：</dt>
   <dd><%= @user.created_at.to_date %></dd>
 </dl>
+
+<p><%= @user.nickname %>的在读数目列表：</p>
+<ul>
+<% @schedules.each do |schedule| %>
+    <li>
+      <a href="<%= book_url(schedule.book) %>"><%= schedule.book.name %></a>
+    </li>
+<% end %>
+</ul>

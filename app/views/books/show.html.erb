@@ -14,9 +14,15 @@
 
 <div>
   目录：
+  <% chapter_ids = @schedules.map do |schedule| schedule.chapter_id end %>
   <ol>
     <% @book.chapters.each do |chapter| %>
-    <li><a href="<%= chapter_url(chapter) %>"><%= chapter.title %></a></li>
+    <li>
+      <a href="<%= chapter_url(chapter) %>"><%= chapter.title %></a>
+      <% if chapter_ids.include?(chapter.id) %>
+      已读
+      <% end %>
+    </li>
     <% end %>
   </ol>
 </div>

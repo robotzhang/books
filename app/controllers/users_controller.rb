@@ -2,6 +2,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
+    @schedules = Schedule.where(:user_id => @user.id).order('updated_at desc').group(:book_id).includes([:book]).all
   end
   def new
     @user = User.new

@@ -1,5 +1,7 @@
 class Schedule < ActiveRecord::Base
   # attr_accessible :title, :body
+  belongs_to :book
+  belongs_to :chapter
   before_create do
     self.start = Time.now
     self.end = self.start
