@@ -1,4 +1,16 @@
-<%= form_for [:admin, @chapter], :html => { :class => 'form-horizontal' } do |f| %>
+<%= form_for [:admin, @chapter],:html => { :class => 'form-horizontal' } do |f| %>
+    <% if flash[:alert] %>
+    <div class="alert"><%= flash[:alert] %></div>
+    <% end %>
+    <% if @chapter.errors.any? %>
+    <div>
+      <ul class="unstyled well-small alert-error">
+        <% for message in @chapter.errors.full_messages %>
+            <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
     <%= f.hidden_field :id %>
     <div class="control-group">
         <%= f.label :book_id, '所属图书', :class => "control-label" %>

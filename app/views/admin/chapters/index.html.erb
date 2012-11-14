@@ -1,6 +1,8 @@
 <div class="mb10">
   <a class="btn" href="<%= new_admin_chapter_url(:book_id => params[:book_id]) %>"><i class="icon-plus-sign"></i> 章节</a>
+  <% if @chapter %>
   <span style="margin-left: 10px; color: purple;"><%= @chapters[0].book.name %></span>
+  <% end %>
 </div>
 
 <table class="table table-bordered table-striped">
@@ -8,6 +10,7 @@
   <tr>
     <th>ID</th>
     <th>章节</th>
+    <th>标题</th>
     <th>所属图书</th>
     <th>创建时间</th>
     <th>操作</th>
@@ -18,6 +21,7 @@
   <tr>
     <td><%= chapter.id %></td>
     <td><%= chapter.number %></td>
+    <td><%= chapter.title %></td>
     <td><%= chapter.book.name %></td>
     <td><%= chapter.created_at.to_date %></td>
     <td>

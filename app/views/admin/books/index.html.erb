@@ -24,7 +24,7 @@
       |
       <%= link_to content_tag(:i, '', 'class'=>'icon-remove-sign')+"删除", admin_book_path(book), :confirm => "确定删除?", :method=>:delete %>
       |
-      <a href="<%= admin_chapters_url(:book_id => 1) %>"><i class="icon-th"></i>章节</a>
+      <a href="<%= admin_chapters_url(:book_id => book.id) %>"><i class="icon-th"></i>章节</a>
     </td>
   </tr>
   <% end %>
