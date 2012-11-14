@@ -1,6 +1,7 @@
 Books::Application.routes.draw do
   root :to => 'application#homepage'
   resources :books
+  get 'chapters/(:book_id)_(:number)' => 'chapters#show'
   resources :chapters
   match 'login' => 'users#login'
   match 'logout' => 'users#destroy'
@@ -8,7 +9,9 @@ Books::Application.routes.draw do
   resources :u, :controller => "users"
   namespace :admin do |admin|
     resources :books
-    resources :chapters
+    resources :chapters  do
+      get 'page/:page', :action => :index, :on => :collection # SEO
+    end
     resources :users
   end
   # The priority is based upon order of creation:
