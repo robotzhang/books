@@ -1,5 +1,8 @@
 #coding=utf-8
 class Admin::ChaptersController < ApplicationController
+  before_filter do |controller|
+    controller.authenticated({:role => 'admin', :alert=>'不具备的权限'})
+  end
   layout 'admin'
   def index
     @chapters = Chapter.where(:book_id => params[:book_id]).includes(:book).order(:number).page(params[:page])

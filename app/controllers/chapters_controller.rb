@@ -1,7 +1,7 @@
 #coding=utf-8
 class ChaptersController < ApplicationController
   before_filter :only => 'show' do |controller|
-    controller.authenticated('必须登录才能查看')
+    controller.authenticated({:alert=>'必须登录才能阅读该章节'})
   end
   def show
     @chapter = Chapter.where(:book_id => params[:book_id], :number => params[:number]).first! # 加!表示未找到则抛出not found异常
