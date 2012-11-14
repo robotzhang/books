@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
     render :template => 'homepage'
   end
 
+  def admin
+    redirect_to admin_books_url
+  end
+
   # 登录验证
   def authenticated(options)
     default ={

@@ -7,6 +7,7 @@ Books::Application.routes.draw do
   match 'logout' => 'users#destroy'
   match 'signup' => 'users#new'
   resources :u, :controller => "users"
+  get 'admin' => 'application#admin'
   namespace :admin do |admin|
     resources :books
     resources :chapters  do
