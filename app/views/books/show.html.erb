@@ -14,9 +14,9 @@
   <ol>
     <% @book.chapters.each do |chapter| %>
     <li>
-      <a href="<%= chapter_url(chapter) %>"><%= chapter.title %></a>
+      <a href="<%= chapter_url(chapter.book_id, chapter.number) %>"><%= chapter.title %></a>
       <% if chapter_ids.include?(chapter.id) %>
-      已读
+      已读 <small><%= chapter.updated_at.strftime('%Y-%m-%d %H:%M')  %></small>
       <% end %>
     </li>
     <% end %>
