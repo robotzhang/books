@@ -15,4 +15,12 @@
 .mb10 { margin-bottom: 10px; }
 .tac { text-align: center; }
 
-.top-nav-options li { float: left; }
+.top-nav li { float: left; margin-top: 18px; padding-left: 20px; }
+.header { border-bottom: 4px solid #DCE6EC; }
+.header h1 { margin: 0; }
+.header .header-border { border-top: 1px solid #C4D5E0; }
+.header .header-content { height: 70px; margin-top: 20px; }
+
+.warp { margin-top: 30px; min-height: 400px; margin-bottom: 30px; }
+
+.footer { font-size: 12px; border-top: #CCC 1px solid; padding-top: 10px; color: #666; }

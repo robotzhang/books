@@ -1,9 +1,10 @@
 <div class="header">
-  <div class="container">
-    <h1 class="pull-left"><a href="<%= root_url %>">木书架</a><small>最有营养的在线读书社区</small></h1>
-    <!--ul class="top-nav pull-left unstyled">
+  <div class="container header-content">
+    <h1 class="pull-left"><a href="<%= root_url %>">木书架</a><small>沉淀的精华</small></h1>
+    <ul class="top-nav pull-left unstyled">
       <li><a href="<%= root_url %>">首页</a></li>
-    </ul-->
+      <li><a href="javascript:void(0);">分类</a></li>
+    </ul>
     <ul class="top-nav-options pull-right unstyled">
       <% if current_user %>
       <li>欢迎：<a href="<%= u_url(current_user) %>"><i class="icon-user"></i><%= current_user.nickname %></a></li>
@@ -20,4 +21,5 @@
       <% end %>
     </ul>
   </div>
+  <div class="header-border"></div>
 </div>
