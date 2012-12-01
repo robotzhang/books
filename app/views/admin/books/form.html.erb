@@ -21,6 +21,11 @@
     </div>
 
     <div class="control-group">
+      <%= f.label :source_url, '来源url', :class => "control-label" %>
+      <div class="controls"><%= f.text_field :source_url %></div>
+    </div>
+
+    <div class="control-group">
       <%= f.label :introduce, '图书简介', :class => "control-label" %>
       <div class="controls"><%= f.text_area :introduce, "rows" => 4, 'class' => 'span5' %></div>
     </div>

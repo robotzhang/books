@@ -13,6 +13,14 @@
     <% end %>
     <%= f.hidden_field :id %>
     <div class="control-group">
+      <%= f.label :url, '目标URL', :class => "control-label" %>
+      <div class="controls">
+        <input class="input-xlarge" name="spider_url" type="text" value="<%= params[:spider_url] %>"/>
+        <button class="btn" type="button" onclick="$('#ifr').attr('src', $('input[name=spider_url]').val())">爬取</button>
+      </div>
+      <div class="pull-right" style="position: fixed; top:50px; right:0;"><iframe style="height: 500px; width: 700px;" id="ifr" src=""></iframe></div>
+    </div>
+    <div class="control-group">
         <%= f.label :book_id, '所属图书', :class => "control-label" %>
         <div class="controls">
           <%= f.text_field :book_id, 'class'=>'input-mini' %>
