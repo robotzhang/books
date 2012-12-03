@@ -15,7 +15,7 @@
     <div class="control-group">
       <%= f.label :url, '目标URL', :class => "control-label" %>
       <div class="controls">
-        <input class="input-xlarge" name="spider_url" type="text" value="<%= params[:spider_url] %>"/>
+        <input class="input-xlarge span5" align="right" name="spider_url" type="text" value="<%= params[:spider_url] %>"/>
         <button class="btn" type="button" onclick="$('#ifr').attr('src', $('input[name=spider_url]').val())">爬取</button>
       </div>
       <div class="pull-right" style="position: fixed; top:50px; right:0;"><iframe style="height: 500px; width: 700px;" id="ifr" src=""></iframe></div>
