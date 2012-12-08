@@ -3,7 +3,7 @@ class BooksController < ApplicationController
 
   end
   def show
-    @book = Book.find(params[:id], :include => 'chapters')
+    @book = Book.find_by_seo_url(params[:seo_url], :include => 'chapters')
     @schedules = Schedule.where(:user_id => current_user.id, :book_id => @book.id).all if current_user
   end
 

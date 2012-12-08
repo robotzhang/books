@@ -1,7 +1,8 @@
 Books::Application.routes.draw do
   root :to => 'application#homepage'
+  get 'books/:seo_url' => 'books#show'
   resources :books
-  get 'read/(:book_id)/(:number)' => 'chapters#show', :as => 'chapter'
+  get 'read/(:seo_url)/(:number)' => 'chapters#show', :as => 'chapter'
   resources :chapters
   match 'login' => 'users#login'
   match 'logout' => 'users#destroy'

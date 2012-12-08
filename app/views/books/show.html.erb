@@ -15,7 +15,7 @@
     <% @book.chapters.each do |chapter| %>
     <li>
       <span style="display: inline-block; width: 80px; text-align: right;">第<%= chapter.number %>章：</span>
-      <a href="<%= chapter_url(chapter.book_id, chapter.number) %>"><%= chapter.title %></a>
+      <a href="<%= chapter_url(@book.seo_url, chapter.number) %>"><%= chapter.title %></a>
       <% if chapter_ids && chapter_ids.include?(chapter.id) %>
       已读 <small><%= chapter.updated_at.strftime('%Y-%m-%d %H:%M')  %></small>
       <% end %>

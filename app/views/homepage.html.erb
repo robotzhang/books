@@ -3,8 +3,8 @@
   <ul class="books unstyled clearfix">
     <% @books.each do |book| %>
     <li>
-        <div class="cover"><a href="<%= book_url(book) %>"><img src="<%= book.cover_image %>" title="<%= book.name %>" /></a></div>
-        <div><a href="<%= book_url(book) %>"><%= book.name %></a></div>
+        <div class="cover"><a href="<%= book_url(book.seo_url) %>"><img src="<%= book.cover_image %>" title="<%= book.name %>" /></a></div>
+        <div><a href="<%= book_url(book.seo_url) %>"><%= book.name %></a></div>
     </li>
     <% end %>
   </ul>

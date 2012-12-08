@@ -13,8 +13,7 @@ class Admin::BooksController < ApplicationController
   end
   def create
     @book = Book.new(params[:book])
-    @book.save
-    redirect_to :action => :index
+    @book.save ? redirect_to(:action => :index) : render(:template => 'admin/books/form')
   end
   def edit
     @book = Book.find(params[:id])
@@ -22,8 +21,8 @@ class Admin::BooksController < ApplicationController
   end
   def update
     @book = Book.find(params[:id])
-    @book.update_attributes(params[:book])
-    redirect_to :action => :index
+    @book.update_attributes(params[:book]) ? redirect_to(:action => :index) : render(:template => 'admin/books/form')
+
   end
   def destroy
     @book = Book.find(params[:id])

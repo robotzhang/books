@@ -11,15 +11,15 @@
 <div class="row">
   <div class="span4">
     <% if @chapter.number > 1 %>
-    <a href="<%= chapter_url(@chapter.book.id, @chapter.number - 1) %>">上一节</a>
+    <a href="<%= chapter_url(@book.seo_url, @chapter.number - 1) %>">上一节</a>
     <% else %>
     <a href="javascript:void(0);">没有了</a>
     <% end %>
   </div>
   <div class="span4">
-    <a href="<%= book_url(@chapter.book) %>"><i class="icon-share-alt"></i>返回<%= @chapter.book.name %></a>
+    <a href="<%= book_url(@chapter.book) %>"><i class="icon-share-alt"></i>返回<%= @book.name %></a>
   </div>
   <div class="span4">
-    <a href="<%= chapter_url(@chapter.book.id, @chapter.number + 1) %>">下一节</a>
+    <a href="<%= chapter_url(@book.seo_url, @chapter.number + 1) %>">下一节</a>
   </div>
 </div>
