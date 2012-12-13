@@ -1,33 +1,8 @@
-<div class="mb10">
-  <a class="btn" href="<%= new_admin_chapter_url(:book_id => params[:book_id]) %>"><i class="icon-plus-sign"></i> 章节</a>
-  <span style="margin-left: 10px; color: purple;"><%= @chapters[0].book.name %></span>
-</div>
-
-<table class="table table-bordered table-striped">
-  <thead>
-  <tr>
-    <th>ID</th>
-    <th>章节</th>
-    <th>所属图书</th>
-    <th>创建时间</th>
-    <th>操作</th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @chapters.each do |chapter| %>
-  <tr>
-    <td><%= chapter.id %></td>
-    <td><%= chapter.number %></td>
-    <td><%= chapter.book.name %></td>
-    <td><%= chapter.created_at.to_date %></td>
-    <td>
-      <a href="<%= edit_polymorphic_url([:admin, chapter]) %>"><i class="icon-edit"></i>编辑</a>
-      |
-      <%= link_to content_tag(:i, '', 'class'=>'icon-remove-sign')+"删除", admin_chapter_path(chapter), :confirm => "确定删除?", :method=>:delete %>
-    </td>
-  </tr>
+<h2>图书大全</h2>
+<ol>
+  <% @books.each do |book| %>
+  <li>
+    <div><a href="<%= book_url(book.seo_url) %>"><%= book.name %></a></div>
+  </li>
   <% end %>
-  </tbody>
-</table>
-
-<%= paginate @chapters %>
+</ol>

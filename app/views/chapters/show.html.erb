@@ -17,7 +17,7 @@
     <% end %>
   </div>
   <div class="span4">
-    <a href="<%= book_url(@chapter.book) %>"><i class="icon-share-alt"></i>返回<%= @book.name %></a>
+    <a href="<%= book_url(@book.seo_url) %>"><i class="icon-share-alt"></i>返回<%= @book.name %></a>
   </div>
   <div class="span4">
     <a href="<%= chapter_url(@book.seo_url, @chapter.number + 1) %>">下一节</a>

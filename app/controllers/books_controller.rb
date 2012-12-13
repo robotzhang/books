@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   def index
-
+     @books = Book.order(:id).page(params[:page])
   end
   def show
     @book = Book.find_by_seo_url(params[:seo_url], :include => 'chapters')

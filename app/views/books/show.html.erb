@@ -1,15 +1,18 @@
-<div class="clearfix">
-  <div class="pull-left">
+<div class="clearfix mb10">
+  <div class="pull-left" style="margin-right: 10px;">
     <img src="<%= @book.cover_image %>" title="<%= @book.name %>" />
   </div>
   <div>
-    <p><%= @book.name %></p>
-    <div><%= @book.sub_name %></div>
+    <h1>
+      <strong><%= @book.name %></strong>
+      <small><%= @book.sub_name %></small>
+    </h1>
+    <div><%= @book.introduce %></div>
   </div>
 </div>
 
 <div class="chapters">
-  目录：
+  <h3>目录：</h3>
   <% chapter_ids = @schedules.map do |schedule| schedule.chapter_id end  if @schedules%>
   <ul class="unstyled">
     <% @book.chapters.each do |chapter| %>
