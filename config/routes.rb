@@ -15,6 +15,7 @@ Books::Application.routes.draw do
     resources :chapters  do
       get 'page/:page', :action => :index, :on => :collection # SEO
     end
+    resources :poems
     resources :users
   end
   # The priority is based upon order of creation:

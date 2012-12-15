@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   # 首页
   def homepage
     @books = Book.all(:limit=>10)
+    @poem = Poem.order('id desc').first
     render :template => 'homepage'
   end
 

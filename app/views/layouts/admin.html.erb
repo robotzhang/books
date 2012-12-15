@@ -16,9 +16,9 @@
           <a href="<%= root_url %>">网站首页</a>
         </div>
         <ul class="nav nav-tabs" style="padding: 10px 20px; padding-bottom: 0;;">
-            <li<%= ' class=active' if params[:controller] == 'admin/books' %>><a href="<%= url_for(:controller => 'admin/books') %>">图书管理</a></li>
-            <li<%= ' class=active' if params[:controller] == 'admin/chapters' %>><a href="<%= url_for(:controller => 'admin/chapters') %>">章节维护</a></li>
-            <li<%= ' class=active' if params[:controller] == 'admin/users' %>><a href="<%= url_for(:controller => 'admin/users') %>">用户管理</a></li>
+          <li<%= ' class=active' if params[:controller] == 'admin/books' %>><a href="<%= url_for(:controller => 'admin/books') %>">图书管理</a></li>
+          <li<%= ' class=active' if params[:controller] == 'admin/poems' %>><a href="<%= url_for(:controller => 'admin/poems') %>">诗歌</a></li>
+          <li<%= ' class=active' if params[:controller] == 'admin/users' %>><a href="<%= url_for(:controller => 'admin/users') %>">用户管理</a></li>
         </ul>
     </div>
     <div style="padding: 10px; padding-top: 0;">

@@ -9,7 +9,7 @@
 <ul>
 <% @schedules.each do |schedule| %>
     <li>
-      <a href="<%= book_url(schedule.book) %>"><%= schedule.book.name %></a>
+      <a href="<%= book_url(schedule.book.seo_url) %>"><%= schedule.book.name %></a>
     </li>
 <% end %>
 </ul>
