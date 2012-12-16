@@ -14,7 +14,13 @@ class Admin::ChaptersController < ApplicationController
   def create
     @chapter = Chapter.new(params[:chapter])
     if @chapter.save
-      redirect_to new_admin_chapter_url(:book_id => @chapter.book_id, :number => @chapter.number + 1, :spider_url => params[:spider_url]), :alert => '第'+@chapter.number.to_s+'章添加成功'
+      redirect_to(new_admin_chapter_url(
+          :book_id => @chapter.book_id,
+          :number => @chapter.number + 1,
+          :spider_url => params[:spider_url],
+          :rule_title => params[:rule_title],
+          :rule_content => params[:rule_content]
+      ), :alert => '第'+@chapter.number.to_s+'章添加成功')
     else
       render :template => 'admin/chapters/form'
     end

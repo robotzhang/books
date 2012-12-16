@@ -15,10 +15,10 @@
     <div class="control-group">
       <%= f.label :url, '目标URL', :class => "control-label" %>
       <div class="controls">
-        <input class="input-xlarge span5" align="right" name="spider_url" type="text" value="<%= params[:spider_url] %>"/>
-        <button class="btn" type="button" onclick="$('#ifr').attr('src', $('input[name=spider_url]').val())">爬取</button>
+        <input type="hidden" name="spider_url" value="<%= params[:spider_url] %>"/>
+        <input class="input-xlarge span5" align="right" name="to_spider_url" type="text" value="<%= format_source_url(params[:spider_url], @chapter) %>"/> @
+        <button class="btn" type="button" onclick="$('#ifr').attr('src', $('input[name=to_spider_url]').val())">爬取</button>
       </div>
-      <div class="pull-right" style="position: fixed; top:50px; right:0;"><iframe style="height: 500px; width: 700px;" id="ifr" src=""></iframe></div>
     </div>
     <div class="control-group">
         <%= f.label :book_id, '所属图书', :class => "control-label" %>
@@ -40,11 +40,43 @@
 
     <div class="control-group">
       <%= f.label :content, '章节内容', :class => "control-label" %>
-      <div class="controls"><%= f.text_area :content, "rows" => 4, 'class' => 'span5' %></div>
+      <div class="controls"><%= f.text_area :content, "rows" => 10, 'class' => 'span10' %></div>
     </div>
 
     <div class="form-actions">
       <%= f.submit '提交', :class => 'btn btn-primary' %>
       <a href="<%= admin_chapters_url(:book_id => @chapter.book_id) %>"><i class="icon-share-alt"></i>返回章节管理</a>
     </div>
+
+    <div style="position: absolute; top: 50px; right: 10px; background-color: #fff; padding: 10px; border: #ccc 1px solid; width: 400px; margin-left: 150px;">
+      <p><strong>爬取内容入库：</strong></p>
+      <p>
+        标题规则：
+        <input type="text" class="input-mini" name="rule_title" value="<%= params[:rule_title] %>"/>
+      </p>
+      <p>
+        内容规则：
+        <input type="text" class="input-mini" name="rule_content" value="<%= params[:rule_content] %>"/>
+      </p>
+      <div><button type="button" name="binding" class="btn btn-small">绑定内容</button></div>
+    </div>
+
+    <div id="spider_content" style="display: none;"><%= spider_url(format_source_url(params[:spider_url], @chapter)).html_safe %></div>
 <% end %>
+
+<script>
+  $(document).ready(function() {
+      $('button[name=binding]').click(function() {
+          var spider = $($('#spider_content').html());
+          var title = spider.find($('input[name=rule_title]').val()).html();
+          var content = spider.find($('input[name=rule_content]').val()).html();
+          var arr = title.split(' ');
+          arr.shift();
+          title = $.trim(arr.join(' '));
+          $('input[name="chapter[title]"]').val(title);
+          $('textarea').val($(content).text());
+
+          return false;
+      });
+  });
+</script>
